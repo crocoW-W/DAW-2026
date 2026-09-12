@@ -245,6 +245,12 @@ body > main {
                 grid-column: 2;
                 align-self: center;
                 margin-right: 1rem;
+
+                transition: transform 0.2s ease;
+                &:hover{
+                    transform: scale(1.05);
+                    transform-origin: center;
+                }
             }
         }
     }
