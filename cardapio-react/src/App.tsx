@@ -1,122 +1,86 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import './index.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      <header>
+        <div className="container">
+          <div className="brand">
+            <img src="/assets/img/logo_lanchonete.svg" alt="Logotipo da lanchonete" />
+            <div>
+              <h1>Cardápio Digital</h1>
+              <p>Faça seu pedido pelo nosso cardápio digital</p>
+            </div>
+          </div>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+          <div className="cart-buttom">
+            <img src="/assets/img/cart.svg" alt="Carrinho de compras" />
+          </div>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      </header>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <nav>
+        <ul>
+          <li><a href="#todos" className="active">Todos</a></li>
+          <li><a href="#lanches">Lanches</a></li>
+          <li><a href="#porcoes">Porções</a></li>
+          <li><a href="#bebidas">Bebidas</a></li>
+          <li><a href="#sobremesas">Sobremesas</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <section>
+          <header>
+            <h2>Produtos</h2>
+            <div className="products-info">
+              <p>10 itens</p>
+              <p id="selected-category">Categoria selecionada: Todos</p>
+            </div>
+          </header>
+
+          <article>
+            <figure>
+              <img src="/assets/img/x-burger.jpg" alt="X-Burger Aurora" />
+              <figcaption>lanches</figcaption>
+            </figure>
+            <h3>X-Burger Aurora</h3>
+            <p>Pão brioche, hambúrguer 160g, queijo e molho da casa.</p>
+            <p>R$ 18,00</p>
+            <button type="button">Adicionar</button>
+          </article>
+
+          <article>
+            <figure>
+              <img src="/assets/img/margherita.jpg" alt="Pizza Margherita" />
+              <figcaption>pizzas</figcaption>
+            </figure>
+            <h3>Pizza Margherita</h3>
+            <p>Molho de tomate, muçarela e manjericão fresco.</p>
+            <p>R$ 42,00</p>
+            <button type="button">Adicionar</button>
+          </article>
+        </section>
+
+        <aside aria-label="Resumo do pedido">
+          <h2>Seu pedido</h2>
+
+          <div className="cart-empty">
+            <img src="/assets/img/cart.svg" alt="" />
+            <p>Seu carrinho está vazio</p>
+            <p>Escolha um item do cardápio para começar</p>
+          </div>
+        </aside>
+      </main>
+
+      <footer>
+        <div className="container">
+          <p>Cardápio Digital - Desenvolvimento Aplicações Web 2026</p>
+          <p>Rua Mato Grosso, 200 - Centro - Pato Branco</p>
+        </div>
+      </footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
