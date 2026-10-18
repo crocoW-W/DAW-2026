@@ -23,7 +23,7 @@ body {
     grid-template-rows: auto 1fr auto;
 }
 
-body > header, body > nav, body > main {
+body header, body nav, body main {
     width: min(100%, 98%);
     margin-inline: auto;
 }
@@ -33,7 +33,7 @@ body > header, body > nav, body > main {
     margin-inline: auto;
 } */
 
-body > header {
+body header {
     background-color: var(--corBackground);
 
     position: sticky;
@@ -90,7 +90,7 @@ body > header {
     }
 }
 
-body > nav {
+body nav {
     background-color: var(--corBackground);
     border-bottom: 1px solid var(--border);
     padding-block: 0.5rem;
@@ -146,7 +146,7 @@ body > nav {
     }
 }
 
-body > main {
+body main {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
@@ -287,7 +287,7 @@ body > main {
     }
 }
 
-body > footer {
+body footer {
     background-color: var(--text-muted);
     color: var(--corBackground);
     font-size: 0.8rem;
@@ -307,7 +307,7 @@ body > footer {
 /* Responsividade */
 
 @media (min-width: 30rem) {
-    body > header {
+    body header {
         .brand p {
             display: block;
         }
@@ -320,13 +320,13 @@ body > footer {
 }
 
 @media (min-width: 48rem) {
-    body > main {
+    body main {
         section {
             grid-template-columns: repeat(2, minmax(0px, 1fr));
         }    
     }
 
-    body > footer .container {
+    body footer .container {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
@@ -335,7 +335,7 @@ body > footer {
 }
 
 @media (min-width: 64rem) {
-    body > main {
+    body main {
         grid-template-columns: minmax(0, 1fr) 330px;
 
         section {
