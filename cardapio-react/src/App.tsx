@@ -1,33 +1,23 @@
 import './index.css';
+import { Header } from './components/layout/header.tsx';
+import { Footer } from './components/layout/footer.tsx';
+import { NavigationBar } from './components/layout/navigation.tsx';
+import { categories } from './data/categories.ts';
+
 
 function App() {
+  function handleSelectCategory(alias: string) {
+    alert(`Categoria selecionada: ${alias}`);
+  }
+
   return (
     <>
-      <header>
-        <div className="container">
-          <div className="brand">
-            <img src="/assets/img/logo_lanchonete.svg" alt="Logotipo da lanchonete" />
-            <div>
-              <h1>Cardápio Digital</h1>
-              <p>Faça seu pedido pelo nosso cardápio digital</p>
-            </div>
-          </div>
+      <Header />
 
-          <div className="cart-buttom">
-            <img src="/assets/img/cart.svg" alt="Carrinho de compras" />
-          </div>
-        </div>
-      </header>
-
-      <nav>
-        <ul>
-          <li><a href="#todos" className="active">Todos</a></li>
-          <li><a href="#lanches">Lanches</a></li>
-          <li><a href="#porcoes">Porções</a></li>
-          <li><a href="#bebidas">Bebidas</a></li>
-          <li><a href="#sobremesas">Sobremesas</a></li>
-        </ul>
-      </nav>
+      <NavigationBar 
+      categories={categories} 
+      activeCategory='todos' 
+      onSelectCategory={handleSelectCategory} />
 
       <main>
         <section>
@@ -73,12 +63,7 @@ function App() {
         </aside>
       </main>
 
-      <footer>
-        <div className="container">
-          <p>Cardápio Digital - Desenvolvimento Aplicações Web 2026</p>
-          <p>Rua Mato Grosso, 200 - Centro - Pato Branco</p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

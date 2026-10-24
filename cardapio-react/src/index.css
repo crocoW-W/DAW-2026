@@ -116,11 +116,13 @@ body nav {
             flex: 0 0 auto;
         }
 
-        a{
+        button{
             border: 1px solid var(--border);
             border-radius: 1rem;
             padding: 0.5rem 1rem;
 
+            cursor: pointer;
+            background-color: transparent;
             text-decoration: none;
             color: var(--text-muted);
             font-size: 0.875rem;
