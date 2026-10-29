@@ -3,21 +3,29 @@ import { Header } from './components/layout/header.tsx';
 import { Footer } from './components/layout/footer.tsx';
 import { NavigationBar } from './components/layout/navigation.tsx';
 import { categories } from './data/categories.ts';
+import { useState } from 'react';
+import { ProductCard } from './cases/products/components/product-card.tsx';
+import { useProducts } from './cases/products/hooks/use-product.ts';
 
 
 function App() {
+
+  const [activeCategory, setActiveCategory] = useState<string>('todos');
+
+  const products = useProducts();
+
   function handleSelectCategory(alias: string) {
-    alert(`Categoria selecionada: ${alias}`);
+    setActiveCategory(alias);
   }
 
   return (
     <>
       <Header />
 
-      <NavigationBar 
-      categories={categories} 
-      activeCategory='todos' 
-      onSelectCategory={handleSelectCategory} />
+      <NavigationBar
+        categories={categories}
+        activeCategory={activeCategory}
+        onSelectCategory={handleSelectCategory} />
 
       <main>
         <section>
@@ -25,31 +33,14 @@ function App() {
             <h2>Produtos</h2>
             <div className="products-info">
               <p>10 itens</p>
-              <p id="selected-category">Categoria selecionada: Todos</p>
+              <p id="selected-category">Categoria selecionada: {activeCategory} </p>
             </div>
           </header>
 
-          <article>
-            <figure>
-              <img src="/assets/img/x-burger.jpg" alt="X-Burger Aurora" />
-              <figcaption>lanches</figcaption>
-            </figure>
-            <h3>X-Burger Aurora</h3>
-            <p>Pão brioche, hambúrguer 160g, queijo e molho da casa.</p>
-            <p>R$ 18,00</p>
-            <button type="button">Adicionar</button>
-          </article>
+          {products.map((product) => (
+            <ProductCard product={product} />
+          ))}
 
-          <article>
-            <figure>
-              <img src="/assets/img/margherita.jpg" alt="Pizza Margherita" />
-              <figcaption>pizzas</figcaption>
-            </figure>
-            <h3>Pizza Margherita</h3>
-            <p>Molho de tomate, muçarela e manjericão fresco.</p>
-            <p>R$ 42,00</p>
-            <button type="button">Adicionar</button>
-          </article>
         </section>
 
         <aside aria-label="Resumo do pedido">
