@@ -10,12 +10,12 @@ export function ProductCard({
     return (
         <article>
             <figure>
-              <img src={product.imageSource} alt={product.name} />
+              <img src={product.image} alt={product.name} />
                 <figcaption>{product.category}</figcaption>
             </figure>
             <h3>{product.name}</h3>
             <p>{product.description}</p>
-            <p><strong>R$ {product.price.toFixed(2)}</strong></p>
+            <p><strong>R$ {product.price} </strong></p>
             <button type="button">Adicionar</button>
         </article>
     )

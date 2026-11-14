@@ -11,11 +11,15 @@ import { useProducts } from './cases/products/hooks/use-product.ts';
 function App() {
 
   const [activeCategory, setActiveCategory] = useState<string>('todos');
+  const [labelActiveCategory, setLabelActiveCategory] = useState<string>('Todos');
 
-  const products = useProducts();
+  const { products, loading, error } = useProducts();
 
-  function handleSelectCategory(alias: string) {
+  const visibleProducts = activeCategory === 'todos' ? products : products.filter(product => product.category === activeCategory);
+
+  function handleSelectCategory(alias: string, Label: string) {
     setActiveCategory(alias);
+    setLabelActiveCategory(Label);
   }
 
   return (
@@ -32,12 +36,16 @@ function App() {
           <header>
             <h2>Produtos</h2>
             <div className="products-info">
-              <p>10 itens</p>
-              <p id="selected-category">Categoria selecionada: {activeCategory} </p>
+              <p>{visibleProducts.length} itens</p>
+              <p id="selected-category">Categoria selecionada: {labelActiveCategory} </p>
             </div>
           </header>
 
-          {products.map((product) => (
+          {loading && <p className='loading'>Carregando produtos...</p>}
+
+          {error && <p className='error'>Erro ao carregar produtos: {error}</p>}
+
+          {visibleProducts.map((product) => (
             <ProductCard product={product} />
           ))}
 

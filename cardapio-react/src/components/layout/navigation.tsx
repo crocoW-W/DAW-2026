@@ -3,7 +3,7 @@ import type { Category } from "../../data/categories.ts";
 type NavigationBarProps = {
     categories: Category[];
     activeCategory: string;
-    onSelectCategory: (alias: string) => void;
+    onSelectCategory: (alias: string, label: string) => void;
 }
 
 export function NavigationBar({ categories, activeCategory, onSelectCategory }: NavigationBarProps) {
@@ -13,7 +13,7 @@ export function NavigationBar({ categories, activeCategory, onSelectCategory }: 
                 {categories.map((category) => (
                     <li>
                         <button type="button" className={category.alias == activeCategory ? "active" : ""}
-                        onClick={() => onSelectCategory(category.alias)}
+                        onClick={() => onSelectCategory(category.alias, category.label)}
                         >
                             {category.label}
                         </button>

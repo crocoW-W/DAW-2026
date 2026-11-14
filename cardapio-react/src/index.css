@@ -176,6 +176,18 @@ body main {
                 direction: rtl;
             }
         }
+        .loading, .error {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            padding-block: 1rem;
+        }
+        .error{
+            border: 1px solid var(#cc0000);
+            color: #cc0000;
+        }
+        
 
         article {
             display: grid;
